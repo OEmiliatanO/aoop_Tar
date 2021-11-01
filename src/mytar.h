@@ -45,18 +45,21 @@ public:
     auto info() -> void;
 
     static constexpr int __USTAR_BLOCK = 512;
-    static constexpr bool __NOT_USTAR = false;
-    static constexpr bool __USTAR = true;
+	
+	// flag
+    static constexpr int __FILE_ERROR = -1;
+	static constexpr int __NOT_USTAR = 0;
+    static constexpr int __USTAR = 1;
+	static constexpr int __UNKNOWN_ERROR = 2;
 
 private:
     string file;
     vector<TarHeader> THrs;
     fstream fs;
     int filesz;
-    int filenum;
 
     auto getfilesz() -> void;
-    auto isUSTAR() -> bool;
+    auto isUSTAR() -> int;
     auto flnum() -> int;
 };
 #endif
