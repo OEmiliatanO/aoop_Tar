@@ -58,8 +58,7 @@ private:
     fstream fs;
     int filesz;
 
-    auto getfilesz() -> void;
+    auto setfilesz() -> void;
     auto isUSTAR() -> int;
-    auto flnum() -> int;
 };
 #endif
